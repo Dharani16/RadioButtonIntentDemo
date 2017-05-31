@@ -1,5 +1,6 @@
 package com.dharani.radiobuttonintentdemo;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -56,6 +57,19 @@ public class MainActivity extends AppCompatActivity {
 
         location();
 
+        switchJob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (switchJob.isChecked()) {
+                    Intent in = new Intent(MainActivity.this,SecondActivity.class);
+                    startActivity(in);
+                    //Toast.makeText(MainActivity.this, "Yeah ! Got job !", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Looking job !", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,13 +78,9 @@ public class MainActivity extends AppCompatActivity {
                 jobStatus();
 
             }
-            
+
             private void jobStatus() {
-                if (switchJob.isChecked()) {
-                    Toast.makeText(MainActivity.this, "Yeah ! Got job !", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(MainActivity.this, "Looking job !", Toast.LENGTH_SHORT).show();
-                }
+
             }
             // select gender
             private void gender() {
@@ -79,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 if (rb == null) {
                     Toast.makeText(getApplicationContext(), "Please select atleast one radiobutton", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Gender is " + rb.getText().toString(), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), "Gender is " + rb.getText().toString(), Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -91,13 +101,13 @@ public class MainActivity extends AppCompatActivity {
                 String checkFour = pg.getText().toString();
 
                 if (ten.isChecked()) {
-                    Toast.makeText(MainActivity.this, "You choosed option is " + checkOne, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "You choosed option is " + checkOne, Toast.LENGTH_SHORT).show();
                 } else if (twelve.isChecked()) {
-                    Toast.makeText(MainActivity.this, "You choosed option is " + checkTwo, Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(MainActivity.this, "You choosed option is " + checkTwo, Toast.LENGTH_SHORT).show();
                 } else if (ug.isChecked()) {
-                    Toast.makeText(MainActivity.this, "You choosed option is " + checkThree, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "You choosed option is " + checkThree, Toast.LENGTH_SHORT).show();
                 } else if (pg.isChecked()) {
-                    Toast.makeText(MainActivity.this, "You choosed option is " + checkFour, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "You choosed option is " + checkFour, Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, "Fill qualification", Toast.LENGTH_SHORT).show();
                 }
